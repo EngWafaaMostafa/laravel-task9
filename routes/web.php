@@ -16,7 +16,7 @@ use App\Http\Controllers\GuarderController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index', [GuarderController::class, 'index'])->name('index');
+Route::get('index', [GuarderController::class, 'index'])->middleware('verified')->name('index');
 Route::get('about', [GuarderController::class, 'about'])->name('about');
 Route::get('service', [GuarderController::class, 'service'])->name('service');
 Route::get('gurad', [GuarderController::class, 'gurad'])->name('gurad');
@@ -40,3 +40,7 @@ Route::get('contactus', [GuarderController::class, 'contactus'])->name('contactu
 // Route::get('contactus', function () {
 //     return view('contactus');
 // })->name('contactus');
+
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
