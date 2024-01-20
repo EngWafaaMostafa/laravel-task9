@@ -34,7 +34,7 @@
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <a class="navbar-brand" href="{{route('index')}}">
                     <span>
-                        Guarder
+                        <h1>{{__('navbar.Guarder')}}</h1>
                     </span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,20 +44,47 @@
                 <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('index')}}">Home <span class="sr-only">(current)</span></a>
+
+
+
+                            <a class="nav-link" href="{{route('index')}}">
+                                {{__('navbar.Home')}}
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about')}}"> About</a>
+                            <a class="nav-link" href="{{route('about')}}">
+                                {{__('navbar.About')}}
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('service')}}"> Services </a>
+                            <a class="nav-link" href="{{route('service')}}">
+                                {{__('navbar.Services')}}
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('gurad')}}"> Guards </a>
+                            <a class="nav-link" href="{{route('gurad')}}">
+                                {{__('navbar.Guards')}}
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('contactus')}}">Contact us</a>
+                            <a class="nav-link" href="{{route('contactus')}}">
+                                {{__('navbar.Contactus')}}
+                            </a>
                         </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('ar') }}">
+                                عربي
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ LaravelLocalization::getLocalizedURL('en') }}">
+                                English
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </nav>

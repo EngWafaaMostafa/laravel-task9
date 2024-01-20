@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuarderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +17,20 @@ use App\Http\Controllers\GuarderController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('index', [GuarderController::class, 'index'])->middleware('verified')->name('index');
-Route::get('about', [GuarderController::class, 'about'])->name('about');
-Route::get('service', [GuarderController::class, 'service'])->name('service');
-Route::get('gurad', [GuarderController::class, 'gurad'])->name('gurad');
-Route::get('contactus', [GuarderController::class, 'contactus'])->name('contactus');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () { //...
+
+        Route::get('index', [GuarderController::class, 'index'])->middleware('verified')->name('index');
+        Route::get('about', [GuarderController::class, 'about'])->name('about');
+        Route::get('service', [GuarderController::class, 'service'])->name('service');
+        Route::get('gurad', [GuarderController::class, 'gurad'])->name('gurad');
+        Route::get('contactus', [GuarderController::class, 'contactus'])->name('contactus');
+    }
+);
 // Route::get('index', function () {
 //     return view('index');
 // })->name('index');
